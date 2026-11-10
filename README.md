@@ -25,7 +25,7 @@ python manage.py runserver
 - `gunicorn` for production WSGI.
 - `whitenoise` serves compressed static files (no separate CDN required).
 - `psycopg[binary]` pre-installed — swap SQLite for Postgres later by changing `DATABASES` in `app/settings.py` and adding a Postgres addon.
-- `release` Procfile command runs `migrate` + `collectstatic` on every deploy.
+- The Procfile `web` command runs `migrate` + `collectstatic` each time the app starts, then gunicorn.
 
 Runtime: Python 3.12.7 (pinned in `runtime.txt`).
 
